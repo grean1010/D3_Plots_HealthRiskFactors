@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>D3Times</title>
+  <title>Poverty Kills</title>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -21,7 +21,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-12">
-        <h1>D3Times</h1>
+        <h1>Poverty Kills</h1>
+        <h2>... news that should surprise no one, but somehow still does.</h2>
       </div>
     </div>
     <div class="row">
@@ -35,17 +36,66 @@
       <div class="col-xs-12  col-md-9">
         <div class="article">
           <h2>Correlations Discovered Between Health Risks and Age, Income</h2>
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+          <p>Explore the graphic above to see the relationship between health risks, age and income.  Select factors along 
+             axis to see the interplay between these variables.  At first glance, it seems that there are many important 
+             relationships here.  But are there?
+          </p>
 
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+          <p>The short answer is yes... and no... because nothing is that easy and there are no short answers.</p>
 
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+          <p>Let's take the simplest of the x-axis variables-- Age.  Click through the y-axis values to explore the relationship 
+              between a state's median age and the percentage of the population with various health risks.  
+              <ul>
+                 <li><b>Percent Without Health Care.  </b>At first glance, there is not much correlation between median age 
+                   in a state and the percentage of the population without healthcare.  But look closer and see that there is a cluster of 
+                   higher rates of non-insurance in states with younger populations. This is likely the result of Medicare being available
+                   to those over 65.  It's possible that states with large numbers of retirees are masking large portions of younger, uninsured 
+                   people. </li>
+                 <li><b>Percent Who Smoke.  </b>Here we see that there is a trend.  Smoking is less prevalent in states with a lower median 
+                   age.  This is consistent with public health efforts over the past several decades to prevent youth smoking. </li>
+                 <li><b>Percent Who are Obese.  </b>There does not appear to be any correlation between a state's median age and the 
+                   percent of the population who are obese. </li>
+              </ul>   
+           </p>
+           <p>Now consider median income.  Select median income on the x-axis and click through the y-axis values to explore the relationship 
+              between a state's median income and the percentage of the population with various health risks.  
+              <ul>
+                 <li><b>Percent Without Health Care.  </b>Not surprisingly, there is a strong correlation between median income and the 
+                   percentage of the population without health care.  Health care is expensive and most Americans are insured through their 
+                   employer.  It makes sense that those with better employment would have more money and be more likely to have health insurance. </li>
+                 <li><b>Percent Who Smoke.  </b>There is a much stronger correlation between a state's median income and its smoking rate. Smoking 
+                   cessation can be an expensive, time-consuming venture. More money means more resources available for those who want to quit. 
+                   Over a large population, this makes a difference in the ability to sucessfully quit smoking.</li>
+                 <li><b>Percent Who are Obese.  </b>At first this relationship seems counter-intuitive.  People with less money are far more likely
+                   to be obese. One would think that having no money means having no food. However, the system of food supply in the United States is 
+                   one of extreme plenty for calories and extreme dearth for nutrition.  Healthy food is more expensive than cheap, calorie-dense junk 
+                   foods. Additionally, much like smoking cessation, weight loss programs are both costly and time-consuming. This puts it out of reach 
+                   of people without a certain income.  Both of those factors together contribute to soaring obesity rates among the 
+                   nation's poor. </li>
+              </ul>   
+           </p>
+           <p>Finally, consider poverty rates.  Select poverty on the x-axis and click through the y-axis values to explore the relationship 
+              between a state's poverty rate and the percentage of the population with various health risks.  The relationships and correlations 
+              are nearly identical to those related to income.  In fact, some of the relationships are more stark because poverty rates reflect 
+              a family's income relative to the local economic conditions.  
+              <ul>
+                 <li><b>Percent Without Health Care.  </b>While we expect to see a similar relationship between poverty and health care access, it 
+                  is surprising to note that there are still very percentages of the population without healthcare in some of the poorest states. 
+                  Normally Medicaid would enroll the poorest in a state, but some states block access or simply do not have the funds to enroll all 
+                  of their poor. </li>
+                 <li><b>Percent Who Smoke.  </b>This relationship is nearly identical to the median income relationship to smoking rates. It's worth 
+                  noting that smoking can often be an outlet or emotional crutch for people living in desperate conditions. It's also worth noting 
+                  that the price of smoking only adds to the overal economic crunch a family is facing.</li>
+                 <li><b>Percent Who are Obese.  </b>Again we see an even more stark relationship between poverty and obesity as we saw with income. </li>
+              </ul>   
+           </p>
+           <p>
+             The real story here is that poverty kills.  The health effects of living under the constant stress of poverty are well-documented.  The 
+             fact that poverty persists and feeds itself is equally well-known. People with limited resources will stick to a vice such as smoking as 
+             one of their only releases. Lack of affordable, nutritious food will keep them obese. Decades of living this way takes a heavy toll on the 
+             body and spririt. Eventually, people live much sicker lives and die much sooner than they should. In the mean time they cost the health care 
+             system far more money and resources than they would have had the country invested in their health and well-being from a young age.
+           </p>
         </div>
       </div>
     </div>
@@ -53,7 +103,7 @@
 
   <!-- Footer-->
   <div id="footer">
-    <p>The Coding Boot Camp&copy;2016</p>
+    <p>Correlation is not causation, but it can be a call to action.</p>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>

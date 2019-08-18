@@ -9,8 +9,8 @@ function getCircleFont(radius){
 
 var circleFontSize = getCircleFont(circleRadius);
 
-console.log(circleRadius);
-console.log(circleFontSize);
+console.log(`Circle Radius: ${circleRadius}`);
+console.log(`Circle Font Size: ${circleFontSize}`);
 
 // Set the initial x and y variables.
 var xVar = 'poverty';
@@ -64,15 +64,6 @@ function varFormatter(valueIn){
 }
 
 
-// Set initial values of height/width
-
-// Define SVG area dimensions as the height and width of the window.
-var svgHeight = 3 * window.innerHeight /4;
-var svgWidth = 3 * window.innerWidth /4;
-//var scatterElement = document.getElementById("#scatter");
-//var svgHeight = scatterElement.offsetHeight;
-//var svgWidth = scatterElement.offsetWidth;
-
 // Define the chart's margins as an object
 var margin = {
   top: 40,
@@ -81,12 +72,8 @@ var margin = {
   left: 120
 };
 
-// Define dimensions of the chart area
-var chartWidth = svgWidth - margin.left - margin.right;
-var chartHeight = svgHeight - margin.top - margin.bottom;
 
-
-function setXLinear(dataIn,xVar){
+function setXLinear(dataIn,xVar,chartWidth){
 
     // set the linear scale for the xaxis based on the variable selected
     // Go a little past the high/low value to allow for circle radius to be within the chart.
@@ -98,7 +85,7 @@ function setXLinear(dataIn,xVar){
 }
 
 
-function setYLinear(dataIn,yVar){
+function setYLinear(dataIn,yVar,chartHeight){
 
     // set the linear scale for the yaxis based on the variable selected
     // Go a little past the high/low value to allow for circle radius to be within the chart.
@@ -112,7 +99,6 @@ function setYLinear(dataIn,yVar){
 function resetXAxis(newXScale, xAxis) {
 
     var newXAxis = d3.axisBottom(newXScale);
-    console.log(newXAxis);
 
     xAxis.transition()
       .duration(1000)
@@ -187,22 +173,16 @@ function setPopUps(makeCircles,newXVar,newYVar){
 // 3. It is run whenever the window is resized so that the 
 //    graph will always be the right size for the window.
 function makeResponsive() {
-
-  console.log
   
   // Select the div from the HTML file that holds the scatter plot.
+  // Remove any contents from previous re-sizes (if any).
   var scatterArea = d3.select("#scatter") 
     .append("div")
     .classed("chart",true)
+    .remove();
 
-  var svgArea = d3.select(".chart");
+  var svgArea = d3.select(".chart").remove();
 
-  // Test to see if there is anything already in the scatter plot.
-  // If so, then remove it so we start with a clean slate.
-  
-  if (!svgArea.empty()) {
-    svgArea.remove();
-  }
   
   // Define SVG area dimensions as the height and width of the window.
   var svgHeight = 3 * window.innerHeight /4;
@@ -246,8 +226,8 @@ function makeResponsive() {
     });
 
     // Use functions to set the linear scales.
-    var xScale2Use = setXLinear(dataIn,xVar);
-    var yScale2Use = setYLinear(dataIn,yVar);
+    var xScale2Use = setXLinear(dataIn,xVar,chartWidth);
+    var yScale2Use = setYLinear(dataIn,yVar,chartHeight);
 
     // Set intial axes.
     var bottomAxis = d3.axisBottom(xScale2Use);
@@ -362,7 +342,7 @@ function makeResponsive() {
             // Update the values of variables.
             xVar = xClicked;
             xVarDesc = getDesc(xVar);
-            xScale2Use = setXLinear(dataIn,xVar);
+            xScale2Use = setXLinear(dataIn,xVar,chartWidth);
           
             // Use the reset functions to transition the display.
             makeCircles = resetCircleLocation(makeCircles,xScale2Use,xVar,yScale2Use,yVar);
@@ -407,7 +387,7 @@ function makeResponsive() {
             // Update the values of variables.
             yVar = yClicked;
             yVarDesc = getDesc(yVar);
-            yScale2Use = setYLinear(dataIn,yVar);
+            yScale2Use = setYLinear(dataIn,yVar,chartHeight);
           
             // Use the reset functions to transition the display.
             makeCircles = resetCircleLocation(makeCircles,xScale2Use,xVar,yScale2Use,yVar);
