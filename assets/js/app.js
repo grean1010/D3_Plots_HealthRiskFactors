@@ -49,21 +49,6 @@ function getDesc(varIn){
 xVarDesc = getDesc(xVar);
 yVarDesc = getDesc(yVar);
 
-
-// Create a function to convert dollar values for display.
-// All others are percents and the description says % so no need to add that.
-function varFormatter(valueIn){
-    if (varIn === 'income'){
-        var valueOut = '';
-    }
-    else {
-        var valueOut = valueIn;
-    }
-
-    return valueOut;
-}
-
-
 // Define the chart's margins as an object
 var margin = {
   top: 40,
@@ -147,13 +132,24 @@ function resetCircleText(makeCircleText,newXScale,newXVar,newYScale,newYVar){
 function setPopUps(makeCircles,newXVar,newYVar){
 
     // Add tooltip text
-    var toolTip = d3.tip()
-        .html(d =>
-            `${d.abbr}<br>
-             ${xVarDesc}: ${d[newXVar]}<br>
-             ${yVarDesc}: ${d[newYVar]}`
+    if (newXVar === 'income'){
+        var toolTip = d3.tip()
+            .html(d =>
+                `${d.state}<br>
+                ${xVarDesc}: $${d[newXVar].toLocaleString()}<br>
+                ${yVarDesc}: ${d[newYVar]}`
             )
-        .attr('class','d3-tip');
+            .attr('class','d3-tip');
+    }
+    else {
+        var toolTip = d3.tip()
+            .html(d =>
+                `${d.state}<br>
+                ${xVarDesc}: ${d[newXVar]}<br>
+                ${yVarDesc}: ${d[newYVar]}`
+            )
+            .attr('class','d3-tip');
+    }
 
     // Bind the tool tip to the circles.
     makeCircles.call(toolTip);
